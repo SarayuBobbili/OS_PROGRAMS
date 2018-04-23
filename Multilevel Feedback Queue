@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<unistd.h>
+#define N 10
+typedef struct
+{
+   int p_id,arrt,bt,pr;
+   int q,ready;
+}p;
+int Queue(int t1)
+{
+   if(t1==0|| t1==1||t2==2||t3=3)
+   {
+     return 1;
+   }
+   else
+   {
+      return 2;
+   }
+}
+int main()
+{
+   int n, count, temp_p,t,i,j;
+   p temp;
+   printf(“Enter no.of processes:  \n“);
+  scanf(“%d”, &n);
+  p process[n];
+  for(count==0;count<n;count++)
+ {
+   printf(“Process ID: \n“);
+   scanf(“%d”,&process[count].p_id);
+   printf(“Arrival Time: \n“);
+   scanf(“%d”,&process[count].arrt);
+   printf(“Burst Time: \n”);
+   scanf(“%d”,&process[count].bt);
+   printf(“Process Priority: \n”);
+   scanf(“%d”,&process[count].pr);
+   temp_p=process[count].pr;
+   process[count].q=Queue(temp_p);
+   process[count].ready=0;
+}
+t=process[0].bt;
+for(j=0;j<n;j++)
+{
+  for(process[count].arrt<t)
+     process[count].ready=1;
+}
+for(count==j;count<n-1;count++)
+{
+  for(i==count+1;i<n;i++)
+  {
+     if(process[count].ready==1&& process[i].ready==1)
+     {
+       if(process[count].bt>process[i].bt)
+       {
+           temp=process[count];
+           process[count]=process[i];
+           process[i]=temp;
+       }
+      else
+      {
+         break;
+      }
+    }
+  }
+}
+  printf(“Process[%d]: \n Time:  %d to %d \n”, process[j].p_id,t,t+process[j].bt);
+  t=t+process[j].bt;
+  for(count=j;count<n;count++)
+  {
+   if(process[count].ready==1)
+      process[count].ready=0;
+  }
+ }
+return 0;
+}
